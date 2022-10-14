@@ -1,0 +1,18 @@
+<app-navbar></app-navbar>
+<div class="container-fluid">
+  <div class="row">
+    <h4 class="text-center text-danger m-4" *ngIf="!postArray.length"> Nothing to show</h4>
+    <div *ngFor="let item of postArray" class="col-3 my-2">
+      <div class="card" style="width: 18rem">
+        <div class="card-body">
+          <h6 class="card-subtitle mb-2 text-muted">{{ item.username }}</h6>
+          <p class="card-text">
+            {{ item.content }}
+          </p>
+          <button class="btn btn-warning mx-2" (click)="blockPost(item._id)">Block Post</button>
+          <button class="btn btn-danger mx-2" (click)="blockUser(item.userId)">Block User</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

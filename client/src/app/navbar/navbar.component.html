@@ -1,0 +1,19 @@
+<nav class="navbar navbar-light text-light" style="background-color: #8BC34A;">
+    <div class="container">
+
+        <a class="navbar-brand text-light" [routerLink]="['/dashboard']">MEAN Assignment</a>
+        <a class="text-light" style="text-decoration: none; cursor: pointer;" [routerLink]="['/myposts']">My Posts</a>
+        <div class="form-inline">
+          
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                {{user?.user?.username}}
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" [routerLink]="['/profile']">Profile</a>
+                <a class="dropdown-item" (click)="logout()">Logout</a>
+           
+              </div>
+        </div>
+
+    </div>
+  </nav>

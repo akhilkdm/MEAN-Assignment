@@ -1,0 +1,109 @@
+<form #form="ngForm" (ngSubmit)="form.valid && onSubmit()">
+  <label>
+    <p class="label-txt">ENTER YOUR NAME</p>
+    <input
+      type="text"
+      class="input"
+      name="username"
+      required
+      #username="ngModel"
+      [(ngModel)]="data.username"
+    />
+    <div class="line-box">
+      <div class="line"></div>
+    </div>
+  </label>
+  <label
+    class="text-danger text-start"
+    *ngIf="form.submitted&&username.errors?.['required']"
+  >
+    Username is required</label
+  >
+  <label>
+    <p class="label-txt">ENTER YOUR EMAIL</p>
+    <input
+      type="text"
+      class="input"
+      name="email"
+      required
+      #email="ngModel"
+      [(ngModel)]="data.email"
+      pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$"
+    />
+    <div class="line-box">
+      <div class="line"></div>
+    </div>
+  </label>
+
+  <label
+    class="text-danger text-start"
+    *ngIf="form.submitted&&email.errors?.['required']"
+  >
+    Email is required</label
+  >
+
+  <label
+    class="text-danger text-start"
+    *ngIf="form.submitted&&email.errors?.['pattern']"
+    >Invalid Email</label
+  >
+
+  <label>
+    <p class="label-txt">ENTER YOUR PHONE</p>
+    <input
+      type="number"
+      class="input"
+      name="phone"
+      required
+      #phone="ngModel"
+      [(ngModel)]="data.phone"
+      pattern="^((\\+91-?)|0)?[0-9]{10}$"
+    />
+    <div class="line-box">
+      <div class="line"></div>
+    </div>
+  </label>
+
+  <label
+    class="text-danger text-start"
+    *ngIf="form.submitted&&phone.errors?.['required']"
+  >
+    Phone is required</label
+  >
+
+  <label
+    class="text-danger text-start"
+    *ngIf="form.submitted&&phone.errors?.['pattern']"
+    >Invalid Phone Number</label
+  >
+
+  <label>
+    <p class="label-txt">ENTER YOUR PASSWORD</p>
+    <input
+      type="password"
+      class="input"
+      name="password"
+      required
+      #password="ngModel"
+      [(ngModel)]="data.password"
+    />
+    <div class="line-box">
+      <div class="line"></div>
+    </div>
+  </label>
+
+  <label
+    class="text-danger text-start"
+    *ngIf="form.submitted&&password.errors?.['required']"
+  >
+    Password is required</label
+  >
+  <button type="submit">SIGN UP</button>
+  <div>
+    <label>
+      <p class="label-txt" [routerLink]="['/login']" id="newAccount">
+        Already have an Account?
+      </p></label
+    >
+  </div>
+</form>

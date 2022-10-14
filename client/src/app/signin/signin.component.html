@@ -1,0 +1,51 @@
+<form #form="ngForm" (ngSubmit)="form.valid && onSubmit()">
+  <label>
+    <p class="label-txt">ENTER YOUR EMAIL</p>
+    <input
+      type="text"
+      class="input"
+      name="email"
+      required
+      #email="ngModel"
+      [(ngModel)]="data.email"
+    />
+    <div class="line-box">
+      <div class="line"></div>
+    </div>
+  </label>
+  <label
+    class="text-danger text-start"
+    *ngIf="form.submitted&&email.errors?.['required']"
+  >
+    Email is required</label
+  >
+
+  <label>
+    <p class="label-txt">ENTER YOUR PASSWORD</p>
+    <input
+      type="password"
+      class="input"
+      name="password"
+      required
+      #password="ngModel"
+      [(ngModel)]="data.password"
+    />
+    <div class="line-box">
+      <div class="line"></div>
+    </div>
+  </label>
+  <label
+    class="text-danger text-start"
+    *ngIf="form.submitted&&password.errors?.['required']"
+  >
+    Password is required</label
+  >
+  <button type="submit">SIGN IN</button>
+  <div>
+    <label>
+      <p class="label-txt" [routerLink]="['/signup']" id="newAccount">
+        Create new Account?
+      </p></label
+    >
+  </div>
+</form>
