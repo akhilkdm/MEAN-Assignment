@@ -6,7 +6,8 @@
         <div class="form-inline">
           
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                {{user?.user?.username}}
+              <img *ngIf="datas.profileImage" [src]=PF class="rounded-circle" height="40px" width="40px" alt="img">
+              <a *ngIf="!datas.profileImage"> {{datas.username}}</a>
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                 <a class="dropdown-item" [routerLink]="['/profile']">Profile</a>

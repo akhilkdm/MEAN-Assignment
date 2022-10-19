@@ -4,17 +4,49 @@
   <div class="row">
     <div class="col-md-3 border-right">
       <div class="d-flex flex-column align-items-center text-center p-3 py-5">
-        <img
-          class="rounded-circle mt-5"
-          width="150px"
-          src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg"
-        />
-        <button class="btn btn-secondary">Upload Image</button>
+        <form action="">
+          <label for="file-input">
+            <img
+              class="rounded-circle mt-5"
+              width="150px"
+              height="150px"
+              [src]=PF
+              alt="Profile Image"
+            />
+          </label>
+          <div class="text-center">
+            <input
+              type="file"
+              id="file-input"
+              name="image"
+              hidden
+              (change)="selectImage($event)"
+            />
+            <button
+              class="btn btn-secondary"
+              type="submit"
+              (click)="onUpload()"
+            >
+              Upload Image
+            </button>
+          </div>
+        </form>
       </div>
       <div class="text-center">
-
-        <button *ngIf="datas.isActive" (click)="deactivate()" class="btn btn-warning">Deactivate</button>
-        <button *ngIf="!datas.isActive" (click)="activate()" class="btn btn-success">Activate</button>
+        <button
+          *ngIf="datas.isActive"
+          (click)="deactivate()"
+          class="btn btn-warning"
+        >
+          Deactivate
+        </button>
+        <button
+          *ngIf="!datas.isActive"
+          (click)="activate()"
+          class="btn btn-success"
+        >
+          Activate
+        </button>
       </div>
     </div>
     <div class="col-md-5 border-right">

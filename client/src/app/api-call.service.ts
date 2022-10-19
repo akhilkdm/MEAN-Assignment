@@ -75,4 +75,8 @@ export class ApiCallService {
     return this.http.put<any>('http://localhost:5500/api/user/activate',{userId:id})
   }
 
+  imageUpload(formData:any,userId:any){
+    return this.http.post<any>(`http://localhost:5500/file/${userId}`,formData)
+  }
+
 }
